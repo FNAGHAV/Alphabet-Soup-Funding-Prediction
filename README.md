@@ -77,7 +77,7 @@ Achieved a target accuracy higher than 75%.
 
 2. Optimization Results:
 
-Saved the optimized model to an HDF5 file named AlphabetSoupCharity_Optimization.h5.
+Saved the optimized model to an HDF5 file named AlphabetSoupCharity.h5.
 
 Step 4: Reporting
 
@@ -91,3 +91,28 @@ Used all other columns except EIN and NAME as features.
 Created a neural network with multiple layers and experimented with different architectures to optimize performance.
 Evaluated the model's performance and discussed steps taken to achieve the desired accuracy.
 
+Summary:
+Data Preprocessing
+
+What variable(s) are the target(s) for your model?
+    We used data in "IS_SUCCESSFUL" column is our target
+
+What variable(s) are the features for your model?
+    We used the the rest of columns as features other than the ones removed
+
+What variable(s) should be removed from the input data because they are neither targets nor features?
+    The identificaiton variables are removed since they were specific to each data row, EIN and NAME
+
+Compiling, Training, and Evaluating the Model
+
+How many neurons, layers, and activation functions did you select for your neural network model, and why?
+    3 different layers (3 hidden layer and and an output layer) with repectively 30, 15 and 15 units with "relu" activation function. the output layer uses sigmoid activation function
+
+Were you able to achieve the target model performance?
+    Due to large size of dataframe (34000 rows x 19000 columns), computation was out of capacity of machine and free cloud computation. It needs a more powerful machine or a better preprocessing and breakdown of data.
+
+What steps did you take in your attempts to increase model performance?
+    Initially different test_size in the train_test_split were used without any luck, then the model was equipped with GridSearchCV with cv = 3 for different combinations of parameters and solvers but the accuracy of model at max changed by +2% with a huge additional load of computation. This means that the solution lies inside the dataset itself and how features and targets are defined. In a step, it was tried to keep "NAME" as one of features but it broke the process 
+
+Describe how you could use a different model to solve the same problem, and explain why you would use that model?
+    No other model was utilized up to this moment.
